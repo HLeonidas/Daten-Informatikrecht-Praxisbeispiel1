@@ -8,6 +8,8 @@ import { Licenses } from './pages/licenses/licenses';
 import { Accessibility } from './pages/accessibility/accessibility';
 import { Imprint } from './pages/imprint/imprint';
 import { Contact } from './pages/contact/contact';
+import { Privacy } from './pages/privacy/privacy';
+import { License } from './pages/license/license';
 
 export const routes: Routes = [
 	{ path: '', component: Home },
@@ -19,5 +21,7 @@ export const routes: Routes = [
 	{ path: 'accessibility', component: Accessibility },
 	{ path: 'imprint', component: Imprint },
 	{ path: 'contact', component: Contact },
+	{ path: 'privacy', component: Privacy },
+	{ path: 'license', component: License },
 
 ];
