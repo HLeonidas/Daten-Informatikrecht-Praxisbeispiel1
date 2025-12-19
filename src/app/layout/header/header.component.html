@@ -1,0 +1,73 @@
+<!-- Skip link (WCAG 2.2) -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50
+         focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:shadow
+         focus:outline-none focus:ring-2 focus:ring-indigo-600">
+	Zum Inhalt springen
+</a>
+
+<header class="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+		<!-- Brand -->
+		<a routerLink="/" aria-label="Startseite"
+			class="flex items-center gap-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+			<span aria-hidden="true" class="text-xl">🎮</span>
+			<span class="text-base font-semibold tracking-tight">GamePassify</span>
+			<span
+				class="ml-2 hidden rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700 sm:inline">
+				Abo
+			</span>
+		</a>
+
+		<!-- Desktop Navigation -->
+		<nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
+			@for (item of navItems; track item.path) {
+			<a [routerLink]="item.path" routerLinkActive="bg-indigo-50 text-indigo-700"
+				[routerLinkActiveOptions]="{ exact: item.path === '/' }" class="rounded-lg px-3 py-2 text-sm font-medium text-gray-700
+                 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+				{{ item.label }}
+			</a>
+			}
+		</nav>
+
+		<!-- Actions -->
+		<div class="flex items-center gap-2">
+			<a routerLink="/pricing" class="hidden rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-900
+               hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:inline-flex">
+				Preise
+			</a>
+
+			<a routerLink="/subscribe" class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white
+               hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2">
+				Abo starten
+			</a>
+
+			<!-- Mobile menu button -->
+			<button type="button" (click)="toggleMenu()" [attr.aria-expanded]="mobileOpen()" aria-controls="mobile-menu"
+				aria-label="Menü öffnen" class="inline-flex items-center justify-center rounded-lg border border-gray-300 p-2 text-gray-700
+               hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 md:hidden">
+				<span aria-hidden="true" class="text-lg leading-none">☰</span>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu -->
+	@if (mobileOpen()) {
+	<div id="mobile-menu" class="md:hidden">
+		<nav class="mx-auto max-w-6xl px-4 pb-4" aria-label="Mobile Navigation">
+			<div class="grid gap-2 rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+				@for (item of navItems; track item.path) {
+				<a [routerLink]="item.path" (click)="closeMenu()" class="rounded-lg px-3 py-2 text-sm font-medium text-gray-900
+                     hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+					{{ item.label }}
+				</a>
+				}
+
+				<a routerLink="/pricing" (click)="closeMenu()" class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-900
+                   hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+					Preise
+				</a>
+			</div>
+		</nav>
+	</div>
+	}
+</header>
