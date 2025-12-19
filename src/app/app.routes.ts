@@ -10,6 +10,7 @@ import { Imprint } from './pages/imprint/imprint';
 import { Contact } from './pages/contact/contact';
 import { Privacy } from './pages/privacy/privacy';
 import { License } from './pages/license/license';
+import { About } from './pages/about/about';
 
 export const routes: Routes = [
 	{ path: '', component: Home },
@@ -23,5 +24,6 @@ export const routes: Routes = [
 	{ path: 'contact', component: Contact },
 	{ path: 'privacy', component: Privacy },
 	{ path: 'license', component: License },
+	{ path: 'about', component: About },
 
 ];
