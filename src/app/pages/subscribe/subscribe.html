@@ -1,0 +1,233 @@
+<section class="py-6">
+	<header class="mb-8">
+		<h1 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+			Abo starten (Mock Checkout)
+		</h1>
+		<p class="mt-3 max-w-prose text-gray-600">
+			Dieser Checkout ist Teil eines Studienprojekts. Es findet kein echter Kauf statt.
+		</p>
+	</header>
+
+	<!-- Progress -->
+	<nav aria-label="Checkout Schritte" class="mb-8">
+		<ol class="flex flex-wrap gap-2 text-sm">
+			<li class="flex items-center gap-2">
+				<span class="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold"
+					[class.bg-indigo-600]="step === 'select'" [class.text-white]="step === 'select'"
+					[class.bg-gray-200]="step !== 'select'" [class.text-gray-700]="step !== 'select'">1</span>
+				<span class="font-medium text-gray-900">Plan wählen</span>
+			</li>
+
+			<li aria-hidden="true" class="mx-1 text-gray-400">→</li>
+
+			<li class="flex items-center gap-2">
+				<span class="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold"
+					[class.bg-indigo-600]="step === 'confirm'" [class.text-white]="step === 'confirm'"
+					[class.bg-gray-200]="step !== 'confirm'" [class.text-gray-700]="step !== 'confirm'">2</span>
+				<span class="font-medium text-gray-900">Bestätigen</span>
+			</li>
+
+			<li aria-hidden="true" class="mx-1 text-gray-400">→</li>
+
+			<li class="flex items-center gap-2">
+				<span class="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold"
+					[class.bg-indigo-600]="step === 'success'" [class.text-white]="step === 'success'"
+					[class.bg-gray-200]="step !== 'success'" [class.text-gray-700]="step !== 'success'">3</span>
+				<span class="font-medium text-gray-900">Erfolg</span>
+			</li>
+		</ol>
+	</nav>
+
+	<!-- Error message (aria-live) -->
+	@if (errorMsg) {
+	<div class="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800" role="alert"
+		aria-live="polite">
+		{{ errorMsg }}
+	</div>
+	}
+
+	<!-- STEP 1: SELECT -->
+	@if (step === 'select') {
+	<div class="grid gap-6 lg:grid-cols-3">
+		<!-- Plans -->
+		<fieldset class="lg:col-span-2">
+			<legend class="sr-only">Abo Plan wählen</legend>
+
+			<div class="grid gap-4 md:grid-cols-3">
+				@for (plan of plans; track plan.id) {
+				<button type="button" (click)="selectPlan(plan.id)"
+					class="text-left rounded-2xl border bg-white p-5 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+					[class.border-indigo-600]="selectedPlanId === plan.id" [class.ring-2]="selectedPlanId === plan.id"
+					[class.ring-indigo-600]="selectedPlanId === plan.id"
+					[attr.aria-pressed]="selectedPlanId === plan.id">
+					<div class="flex items-start justify-between gap-3">
+						<div>
+							<h2 class="text-base font-semibold text-gray-900">{{ plan.name }}</h2>
+							<p class="mt-1 text-xs text-gray-600">{{ plan.description }}</p>
+						</div>
+						@if (selectedPlanId === plan.id) {
+						<span class="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700">
+							Ausgewählt
+						</span>
+						}
+					</div>
+
+					<p class="mt-4 text-2xl font-semibold tracking-tight text-gray-900">
+						{{ plan.priceMonthly | number : '1.2-2' }} €
+						<span class="text-sm font-medium text-gray-600">/ Monat</span>
+					</p>
+
+					<ul class="mt-4 space-y-2 text-xs text-gray-700">
+						@for (f of plan.features; track f) {
+						<li class="flex items-start gap-2">
+							<span aria-hidden="true" class="mt-0.5">✅</span>
+							<span>{{ f }}</span>
+						</li>
+						}
+					</ul>
+				</button>
+				}
+			</div>
+		</fieldset>
+
+		<!-- Summary -->
+		<aside class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+			<h2 class="text-base font-semibold text-gray-900">Zusammenfassung</h2>
+
+			<div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+				<p class="text-sm font-semibold text-gray-900">{{ selectedPlan.name }}</p>
+				<p class="mt-1 text-sm text-gray-600">{{ selectedPlan.description }}</p>
+				<p class="mt-3 text-lg font-semibold text-gray-900">
+					{{ selectedPlan.priceMonthly | number : '1.2-2' }} € <span
+						class="text-sm font-medium text-gray-600">/ Monat</span>
+				</p>
+			</div>
+
+			<p class="mt-4 text-xs text-gray-500">
+				Hinweis: Mock-Checkout — kein echtes Payment, keine echte Leistungserbringung.
+			</p>
+
+			<button type="button" (click)="goToConfirm()"
+				class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white
+                 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+				Weiter zur Bestätigung
+			</button>
+		</aside>
+	</div>
+	}
+
+	<!-- STEP 2: CONFIRM -->
+	@if (step === 'confirm') {
+	<div class="grid gap-6 lg:grid-cols-3">
+		<div class="lg:col-span-2 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+			<h2 class="text-lg font-semibold text-gray-900">Bestätigen</h2>
+			<p class="mt-2 text-sm text-gray-600">
+				Gib eine E-Mail-Adresse an und bestätige die Bedingungen (Mock).
+			</p>
+
+			<div class="mt-6 grid gap-4">
+				<label class="grid gap-1">
+					<span class="text-sm font-medium text-gray-900">E-Mail</span>
+					<input type="email" [(ngModel)]="email" placeholder="name@example.com" class="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+						autocomplete="email" />
+					<span class="text-xs text-gray-500">Wir senden dir eine Mock-Bestätigung (kein echter
+						Versand).</span>
+				</label>
+
+				<label class="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4">
+					<input type="checkbox" [(ngModel)]="acceptTerms"
+						class="mt-1 h-4 w-4 rounded border-gray-300 text-indigo-600 focus-visible:ring-indigo-600" />
+					<span class="text-sm text-gray-700">
+						Ich akzeptiere die
+						<a routerLink="/license"
+							class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Lizenz</a>,
+						<a routerLink="/privacy"
+							class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Datenschutzerklärung</a>
+						und <a routerLink="/imprint"
+							class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Impressum</a>.
+					</span>
+				</label>
+			</div>
+
+			<div class="mt-6 flex flex-col gap-3 sm:flex-row">
+				<button type="button" (click)="backToSelect()"
+					class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-900
+                   hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+					Zurück
+				</button>
+
+				<button type="button" (click)="completeCheckout()"
+					class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white
+                   hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+					Mock-Kauf bestätigen
+				</button>
+			</div>
+		</div>
+
+		<aside class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+			<h2 class="text-base font-semibold text-gray-900">Dein Abo</h2>
+
+			<div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+				<p class="text-sm font-semibold text-gray-900">{{ selectedPlan.name }}</p>
+				<p class="mt-1 text-sm text-gray-600">{{ selectedPlan.description }}</p>
+				<p class="mt-3 text-lg font-semibold text-gray-900">
+					{{ selectedPlan.priceMonthly | number : '1.2-2' }} € <span
+						class="text-sm font-medium text-gray-600">/ Monat</span>
+				</p>
+			</div>
+
+			<p class="mt-4 text-xs text-gray-500">
+				Kein echtes Payment. Keine Speicherung außerhalb der Session (Mock).
+			</p>
+		</aside>
+	</div>
+	}
+
+	<!-- STEP 3: SUCCESS -->
+	@if (step === 'success') {
+	<div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+		<div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+			<div>
+				<h2 class="text-xl font-semibold text-gray-900">Erfolg 🎉</h2>
+				<p class="mt-2 text-sm text-gray-600">
+					Dein Mock-Abo wurde „abgeschlossen“. Du kannst jetzt den Katalog ansehen.
+				</p>
+			</div>
+
+			<a routerLink="/catalog"
+				class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white
+                 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+				Zum Katalog
+			</a>
+		</div>
+
+		<div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
+			<p class="text-sm text-gray-700">
+				<span class="font-semibold text-gray-900">Plan:</span> {{ selectedPlan.name }}
+			</p>
+			<p class="mt-1 text-sm text-gray-700">
+				<span class="font-semibold text-gray-900">Preis:</span>
+				{{ selectedPlan.priceMonthly | number : '1.2-2' }} € / Monat
+			</p>
+			<p class="mt-1 text-sm text-gray-700">
+				<span class="font-semibold text-gray-900">E-Mail:</span> {{ email }}
+			</p>
+		</div>
+
+		<div class="mt-6 flex flex-col gap-3 sm:flex-row">
+			<button type="button" (click)="reset()"
+				class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-900
+                 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+				Neues Mock-Abo starten
+			</button>
+
+			<a routerLink="/pricing"
+				class="inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold text-indigo-700
+                 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+				Zurück zu Preisen
+			</a>
+		</div>
+	</div>
+	}
+</section>

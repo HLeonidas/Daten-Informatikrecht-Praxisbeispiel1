@@ -1,0 +1,133 @@
+<section class="py-6">
+	<header class="mb-8">
+		<h1 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+			Preise & Abos
+		</h1>
+		<p class="mt-3 max-w-prose text-gray-600">
+			Wähle das Abo, das zu deinem Gaming passt. Kündbar jederzeit. Inhalte & Checkout sind in dieser Übung
+			gemockt.
+		</p>
+	</header>
+
+	<!-- Billing toggle (accessible segmented control) -->
+	<div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+		<div class="text-sm text-gray-700">
+			Abrechnung: <span class="font-semibold text-gray-900">{{ billingLabel() }}</span>
+		</div>
+
+		<div class="inline-flex w-fit rounded-xl border border-gray-200 bg-white p-1 shadow-sm" role="group"
+			aria-label="Abrechnungsintervall">
+			<button type="button" (click)="setBilling('monthly')" [attr.aria-pressed]="billing === 'monthly'"
+				class="rounded-lg px-4 py-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+				[class.bg-indigo-600]="billing === 'monthly'" [class.text-white]="billing === 'monthly'"
+				[class.text-gray-900]="billing !== 'monthly'">
+				Monatlich
+			</button>
+
+			<button type="button" (click)="setBilling('yearly')" [attr.aria-pressed]="billing === 'yearly'"
+				class="rounded-lg px-4 py-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+				[class.bg-indigo-600]="billing === 'yearly'" [class.text-white]="billing === 'yearly'"
+				[class.text-gray-900]="billing !== 'yearly'">
+				Jährlich
+			</button>
+		</div>
+	</div>
+
+	<!-- Plans -->
+	<div class="grid gap-6 lg:grid-cols-3">
+		@for (plan of plans; track plan.id) {
+		<article class="rounded-2xl border bg-white p-6 shadow-sm" [class.border-indigo-300]="plan.highlight"
+			[class.ring-2]="plan.highlight" [class.ring-indigo-600]="plan.highlight" aria-label="Abo Plan">
+			<div class="flex items-start justify-between gap-3">
+				<div>
+					<h2 class="text-lg font-semibold text-gray-900">
+						{{ plan.name }}
+					</h2>
+					<p class="mt-1 text-sm text-gray-600">
+						{{ plan.description }}
+					</p>
+				</div>
+
+				@if (plan.highlight) {
+				<span class="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700">
+					Beliebt
+				</span>
+				}
+			</div>
+
+			<div class="mt-5">
+				<p class="text-3xl font-semibold tracking-tight text-gray-900">
+					{{ price(plan) | number : '1.2-2' }} €
+					<span class="text-sm font-medium text-gray-600">{{ priceSuffix() }}</span>
+				</p>
+				@if (billing === 'yearly') {
+				<p class="mt-1 text-xs text-gray-600">
+					Hinweis: Jahrespreise sind in dieser Übung Beispielwerte.
+				</p>
+				}
+			</div>
+
+			<ul class="mt-5 space-y-2 text-sm text-gray-700">
+				@for (f of plan.features; track f) {
+				<li class="flex items-start gap-2">
+					<span aria-hidden="true" class="mt-0.5">✅</span>
+					<span>{{ f }}</span>
+				</li>
+				}
+			</ul>
+
+			<div class="mt-6">
+				<a routerLink="/subscribe"
+					class="inline-flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"
+					[class.bg-indigo-600]="plan.highlight" [class.text-white]="plan.highlight"
+					[class.hover:bg-indigo-700]="plan.highlight" [class.border]="!plan.highlight"
+					[class.border-gray-300]="!plan.highlight" [class.text-gray-900]="!plan.highlight"
+					[class.hover:bg-gray-50]="!plan.highlight">
+					Abo wählen
+				</a>
+				<p class="mt-2 text-center text-xs text-gray-500">
+					Mock-Checkout (kein echter Kauf)
+				</p>
+			</div>
+		</article>
+		}
+	</div>
+
+	<!-- FAQ / notes -->
+	<section class="mt-12 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+		<h2 class="text-lg font-semibold text-gray-900">Häufige Fragen</h2>
+
+		<div class="mt-4 grid gap-6 md:grid-cols-2">
+			<div>
+				<h3 class="text-sm font-semibold text-gray-900">Kann ich jederzeit kündigen?</h3>
+				<p class="mt-1 text-sm text-gray-600">
+					Ja. In dieser Übung ist die Kündigung/Verwaltung gemockt, die Inhalte dienen zur Demonstration.
+				</p>
+			</div>
+
+			<div>
+				<h3 class="text-sm font-semibold text-gray-900">Welche Zahlungsmethoden gibt es?</h3>
+				<p class="mt-1 text-sm text-gray-600">
+					Zahlungsprozess ist gemockt (kein echtes Payment). Details stehen später in Datenschutz &amp;
+					Lizenz.
+				</p>
+			</div>
+
+			<div>
+				<h3 class="text-sm font-semibold text-gray-900">Was bedeutet „Cloud-Streaming (mock)“?</h3>
+				<p class="mt-1 text-sm text-gray-600">
+					Es wird kein echtes Streaming angeboten. Die UI simuliert nur den Webshop-Prozess.
+				</p>
+			</div>
+
+			<div>
+				<h3 class="text-sm font-semibold text-gray-900">Gibt es eine Barrierefreiheitserklärung?</h3>
+				<p class="mt-1 text-sm text-gray-600">
+					Ja: <a routerLink="/accessibility"
+						class="underline focus-visible:ring-2 focus-visible:ring-indigo-600 rounded">Barrierefreiheit</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+</section>
