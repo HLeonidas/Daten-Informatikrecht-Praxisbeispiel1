@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <circle cx="920" cy="220" r="170" fill="#a5b4fc" opacity="0.35"/>
+  <circle cx="980" cy="280" r="120" fill="#818cf8" opacity="0.35"/>
+  <text x="72" y="140" fill="#fff" font-size="64" font-family="Arial" font-weight="700">Neon Drift</text>
+  <text x="72" y="210" fill="#e5e7eb" font-size="26" font-family="Arial">Arcade Racing • Mock Cover</text>
+</svg>

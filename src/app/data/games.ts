@@ -11,6 +11,8 @@ export type Game = {
 	longDescription: string;
 	features: string[];
 	tags: string[];
+	coverSrc: string;
+	coverAlt: string;
 };
 
 export const GAMES: Game[] = [
@@ -26,7 +28,9 @@ export const GAMES: Game[] = [
 			'Neon Drift ist ein schneller Arcade-Racer mit kurzen Runden, Drift-Boosts und einem stylischen Neon-Look. '
 			+ 'Dieses Listing ist Teil eines Studienprojekts und nutzt Mock-Daten.',
 		features: ['Kurz-Runden (mock)', 'Drift-Boost (mock)', 'Leaderboards (mock)'],
-		tags: ['Arcade', 'Neon', 'Boost']
+		tags: ['Arcade', 'Neon', 'Boost'],
+		coverSrc: 'assets/covers/neon-drift.svg',
+		coverAlt: 'Covergrafik zu Neon Drift'
 	},
 	{
 		id: 'g2',
@@ -40,7 +44,9 @@ export const GAMES: Game[] = [
 			'Runebound ist ein story-getriebenes RPG mit Quests, Crafting und Party-Building. '
 			+ 'Alle Inhalte sind Mock-Daten für die Übung.',
 		features: ['Quests (mock)', 'Crafting (mock)', 'Party-System (mock)'],
-		tags: ['Story', 'Crafting', 'Quests']
+		tags: ['Story', 'Crafting', 'Quests'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Runebound'
 	},
 	{
 		id: 'g3',
@@ -54,7 +60,9 @@ export const GAMES: Game[] = [
 			'Tiny Galaxy ist ein kleines Indie-Abenteuer im All mit gemütlichem Gameplay. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Cozy Gameplay (mock)', 'Exploration (mock)', 'Kurz-Story (mock)'],
-		tags: ['Cozy', 'Space', 'Indie']
+		tags: ['Cozy', 'Space', 'Indie'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Tiny Galaxy'
 	},
 	{
 		id: 'g4',
@@ -68,7 +76,9 @@ export const GAMES: Game[] = [
 			'Party Protocol ist ein Co-op Spiel für 2–4 Spieler mit schnellen Runden. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['2–4 Spieler (mock)', 'Minigames (mock)', 'Local/Online (mock)'],
-		tags: ['Co-op', 'Party', 'Minigames']
+		tags: ['Co-op', 'Party', 'Minigames'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Party Protocol'
 	},
 	{
 		id: 'g5',
@@ -82,7 +92,9 @@ export const GAMES: Game[] = [
 			'Hex Tactics ist ein rundenbasiertes Strategiespiel auf Hex-Feldern. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Rundenbasiert (mock)', 'Einheiten-Upgrades (mock)', 'Skirmish (mock)'],
-		tags: ['Tactics', 'Turn-based', 'Hex']
+		tags: ['Tactics', 'Turn-based', 'Hex'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Hex Tactics'
 	},
 	{
 		id: 'g6',
@@ -96,7 +108,9 @@ export const GAMES: Game[] = [
 			'Crimson Runner ist ein schneller Platformer mit Bossfights und Combo-Moves. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Bossfights (mock)', 'Combos (mock)', 'Speedrun Mode (mock)'],
-		tags: ['Platformer', 'Action', 'Speedrun']
+		tags: ['Platformer', 'Action', 'Speedrun'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Crimson Runner'
 	},
 	{
 		id: 'g7',
@@ -110,7 +124,9 @@ export const GAMES: Game[] = [
 			'Forest Echoes ist ein Puzzle-Spiel mit Atmosphäre und ruhigem Storytelling. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Puzzle (mock)', 'Atmosphäre (mock)', 'Story (mock)'],
-		tags: ['Puzzle', 'Atmosphere', 'Story']
+		tags: ['Puzzle', 'Atmosphere', 'Story'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Forest Echoes'
 	},
 	{
 		id: 'g8',
@@ -124,7 +140,9 @@ export const GAMES: Game[] = [
 			'Guild & Glory kombiniert Party-RPG und Quest-Hubs. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Party-Building (mock)', 'Quest-Hub (mock)', 'Loot (mock)'],
-		tags: ['Party', 'Loot', 'Quests']
+		tags: ['Party', 'Loot', 'Quests'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Guild & Glory'
 	},
 	{
 		id: 'g9',
@@ -138,7 +156,9 @@ export const GAMES: Game[] = [
 			'Co-op Kitchen Chaos ist ein Team-Kochspiel mit Zeitdruck und Chaos. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Teamwork (mock)', 'Zeitdruck (mock)', 'Level-Progression (mock)'],
-		tags: ['Cooking', 'Co-op', 'Chaos']
+		tags: ['Cooking', 'Co-op', 'Chaos'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Co-op Kitchen Chaos'
 	},
 	{
 		id: 'g10',
@@ -152,7 +172,9 @@ export const GAMES: Game[] = [
 			'Apex Circuit bietet simcade-lastige Rennen und kurze Saisons. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Saisons (mock)', 'Tuning (mock)', 'Time Trials (mock)'],
-		tags: ['Simcade', 'Tuning', 'Circuit']
+		tags: ['Simcade', 'Tuning', 'Circuit'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Apex Circuit'
 	},
 	{
 		id: 'g11',
@@ -166,7 +188,9 @@ export const GAMES: Game[] = [
 			'Star Siege ist ein Base-Building Strategy Spiel im Sci-Fi Setting. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Base-Building (mock)', 'Tech Tree (mock)', 'Skirmish (mock)'],
-		tags: ['Base', 'Sci-Fi', 'Tech']
+		tags: ['Base', 'Sci-Fi', 'Tech'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Star Siege'
 	},
 	{
 		id: 'g12',
@@ -180,6 +204,8 @@ export const GAMES: Game[] = [
 			'Shadow Strike kombiniert Stealth und Action in kurzen Missionen. '
 			+ 'Mock-Daten für Studienprojekt.',
 		features: ['Stealth (mock)', 'Missionen (mock)', 'Ausrüstung (mock)'],
-		tags: ['Stealth', 'Action', 'Mission']
+		tags: ['Stealth', 'Action', 'Mission'],
+		coverSrc: '',
+		coverAlt: 'Covergrafik zu Shadow Strike'
 	}
 ];
