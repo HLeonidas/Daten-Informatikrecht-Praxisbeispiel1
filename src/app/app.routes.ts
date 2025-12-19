@@ -5,6 +5,7 @@ import { Subscribe } from './pages/subscribe/subscribe';
 import { Catalog } from './pages/catalog/catalog';
 import { GameDetails } from './pages/game-details/game-details';
 import { Licenses } from './pages/licenses/licenses';
+import { Accessibility } from './pages/accessibility/accessibility';
 
 export const routes: Routes = [
 	{ path: '', component: Home },
@@ -13,4 +14,6 @@ export const routes: Routes = [
 	{ path: 'catalog', component: Catalog },
 	{ path: 'catalog/:id', component: GameDetails },
 	{ path: 'licenses', component: Licenses },
+	{ path: 'accessibility', component: Accessibility },
+
 ];
