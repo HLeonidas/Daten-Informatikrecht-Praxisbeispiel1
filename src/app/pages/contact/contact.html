@@ -1,0 +1,200 @@
+<section class="py-6">
+	<header class="mb-8">
+		<h1 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+			Kontakt
+		</h1>
+		<p class="mt-3 max-w-prose text-gray-600">
+			Schreib uns eine Nachricht. Dieses Formular ist Teil eines Studienprojekts – die Übermittlung ist gemockt.
+		</p>
+	</header>
+
+	<div class="grid gap-6 lg:grid-cols-3">
+		<!-- Form -->
+		<section class="lg:col-span-2 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+			<h2 class="text-lg font-semibold text-gray-900">Kontaktformular</h2>
+			<p class="mt-2 text-sm text-gray-600">
+				Felder mit <span class="font-semibold text-gray-900">*</span> sind Pflichtfelder.
+			</p>
+
+			@if (formError) {
+			<div class="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800" role="alert"
+				aria-live="polite">
+				{{ formError }}
+			</div>
+			}
+
+			@if (success) {
+			<div class="mt-5 rounded-xl border border-green-200 bg-green-50 p-4" role="status" aria-live="polite">
+				<h3 class="text-sm font-semibold text-green-900">Nachricht gesendet (Mock) ✅</h3>
+				<p class="mt-1 text-sm text-green-800">
+					Danke! In einer echten Anwendung würden wir dir per E-Mail antworten.
+				</p>
+
+				<div class="mt-4 flex flex-col gap-3 sm:flex-row">
+					<button type="button" (click)="reset()"
+						class="inline-flex items-center justify-center rounded-lg border border-green-300 bg-white px-4 py-3 text-sm font-semibold text-green-900
+                     hover:bg-green-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-700 focus-visible:ring-offset-2">
+						Neue Nachricht
+					</button>
+
+					<a routerLink="/imprint"
+						class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-900
+                     hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+						Impressum
+					</a>
+				</div>
+			</div>
+			}
+
+			<form class="mt-6 grid gap-5" (submit)="$event.preventDefault(); submit()" novalidate>
+				<!-- Name -->
+				<div class="grid gap-1">
+					<label for="name" class="text-sm font-medium text-gray-900">
+						Name <span aria-hidden="true" class="text-red-600">*</span>
+					</label>
+					<input id="name" type="text" [value]="form.name"
+						(input)="setField('name', ($any($event.target)).value)" autocomplete="name" class="rounded-lg border bg-white px-3 py-2 text-sm text-gray-900
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+						[class.border-gray-300]="!errors.name" [class.border-red-300]="!!errors.name"
+						[attr.aria-invalid]="!!errors.name"
+						[attr.aria-describedby]="errors.name ? 'name-error' : null" />
+					@if (errors.name) {
+					<p id="name-error" class="text-sm text-red-700">
+						{{ errors.name }}
+					</p>
+					}
+				</div>
+
+				<!-- Email -->
+				<div class="grid gap-1">
+					<label for="email" class="text-sm font-medium text-gray-900">
+						E-Mail <span aria-hidden="true" class="text-red-600">*</span>
+					</label>
+					<input id="email" type="email" [value]="form.email"
+						(input)="setField('email', ($any($event.target)).value)" autocomplete="email" class="rounded-lg border bg-white px-3 py-2 text-sm text-gray-900
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+						[class.border-gray-300]="!errors.email" [class.border-red-300]="!!errors.email"
+						[attr.aria-invalid]="!!errors.email"
+						[attr.aria-describedby]="errors.email ? 'email-error' : null" />
+					@if (errors.email) {
+					<p id="email-error" class="text-sm text-red-700">
+						{{ errors.email }}
+					</p>
+					}
+				</div>
+
+				<!-- Subject -->
+				<div class="grid gap-1">
+					<label for="subject" class="text-sm font-medium text-gray-900">
+						Betreff <span aria-hidden="true" class="text-red-600">*</span>
+					</label>
+					<select id="subject" [value]="form.subject"
+						(change)="setField('subject', ($any($event.target)).value)" class="rounded-lg border bg-white px-3 py-2 text-sm text-gray-900
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+						[class.border-gray-300]="!errors.subject" [class.border-red-300]="!!errors.subject"
+						[attr.aria-invalid]="!!errors.subject"
+						[attr.aria-describedby]="errors.subject ? 'subject-error' : null">
+						<option value="" disabled>Bitte auswählen…</option>
+						<option value="support">Support (Mock)</option>
+						<option value="billing">Abrechnung / Abo (Mock)</option>
+						<option value="legal">Rechtliches</option>
+						<option value="other">Sonstiges</option>
+					</select>
+					@if (errors.subject) {
+					<p id="subject-error" class="text-sm text-red-700">
+						{{ errors.subject }}
+					</p>
+					}
+				</div>
+
+				<!-- Message -->
+				<div class="grid gap-1">
+					<label for="message" class="text-sm font-medium text-gray-900">
+						Nachricht <span aria-hidden="true" class="text-red-600">*</span>
+					</label>
+					<textarea id="message" rows="6" [value]="form.message"
+						(input)="setField('message', ($any($event.target)).value)" class="rounded-lg border bg-white px-3 py-2 text-sm text-gray-900
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+						[class.border-gray-300]="!errors.message" [class.border-red-300]="!!errors.message"
+						[attr.aria-invalid]="!!errors.message"
+						[attr.aria-describedby]="errors.message ? 'message-error' : null"></textarea>
+					@if (errors.message) {
+					<p id="message-error" class="text-sm text-red-700">
+						{{ errors.message }}
+					</p>
+					}
+					<p class="text-xs text-gray-500">
+						Mindestlänge: 10 Zeichen. (Mock-Formular)
+					</p>
+				</div>
+
+				<!-- Consent -->
+				<div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+					<label class="flex items-start gap-3">
+						<input type="checkbox" [checked]="form.consent"
+							(change)="setField('consent', ($any($event.target)).checked)"
+							class="mt-1 h-4 w-4 rounded border-gray-300 text-indigo-600 focus-visible:ring-indigo-600"
+							[attr.aria-invalid]="!!errors.consent"
+							[attr.aria-describedby]="errors.consent ? 'consent-error' : null" />
+						<span class="text-sm text-gray-700">
+							Ich habe die <a routerLink="/privacy"
+								class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Datenschutzerklärung</a>
+							gelesen und stimme der Verarbeitung meiner Angaben zum Zweck der Kontaktaufnahme zu.
+							<span aria-hidden="true" class="text-red-600">*</span>
+						</span>
+					</label>
+
+					@if (errors.consent) {
+					<p id="consent-error" class="mt-2 text-sm text-red-700">
+						{{ errors.consent }}
+					</p>
+					}
+				</div>
+
+				<!-- Actions -->
+				<div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+					<button type="submit"
+						class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white
+                   hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+						Nachricht senden (Mock)
+					</button>
+
+					<button type="button" (click)="reset()"
+						class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900
+                   hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+						Zurücksetzen
+					</button>
+				</div>
+
+				<p class="text-xs text-gray-500">
+					Hinweis: Es werden keine Daten an einen Server gesendet. Alles bleibt lokal im Browser (Mock).
+				</p>
+			</form>
+		</section>
+
+		<!-- Side info -->
+		<aside class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+			<h2 class="text-base font-semibold text-gray-900">Kontakt-Info</h2>
+
+			<div class="mt-4 space-y-3 text-sm text-gray-700">
+				<p>
+					Für rechtliche Informationen siehe:
+					<a routerLink="/imprint"
+						class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Impressum</a>
+				</p>
+				<p>
+					Informationen zur Datenverarbeitung:
+					<a routerLink="/privacy"
+						class="underline rounded focus-visible:ring-2 focus-visible:ring-indigo-600">Datenschutzerklärung</a>
+				</p>
+			</div>
+
+			<div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
+				<h3 class="text-sm font-semibold text-gray-900">Projektkontext</h3>
+				<p class="mt-1 text-sm text-gray-600">
+					GamePassify ist ein Studienprojekt (Mock-Webshop). Keine echte Leistungserbringung.
+				</p>
+			</div>
+		</aside>
+	</div>
+</section>
