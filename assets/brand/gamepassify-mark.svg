@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="GamePassify Bildmarke">
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <path d="M158 250c0-52 42-94 94-94h8c52 0 94 42 94 94v12c0 52-42 94-94 94h-8c-52 0-94-42-94-94v-12z" fill="#4F46E5"/>
+  <path d="M236 214l72 42-72 42v-84z" fill="#E5E7EB"/>
+  <path d="M192 252h-22m150 0h22" stroke="#E5E7EB" stroke-width="18" stroke-linecap="round"/>
+</svg>
