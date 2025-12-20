@@ -63,7 +63,8 @@ export class Catalog {
 				!q || g.title.toLowerCase().includes(q) || g.description.toLowerCase().includes(q);
 
 			const matchesGenre =
-				this.selectedGenre === 'All' || g.genre === this.selectedGenre;
+				this.selectedGenre === 'All' || g.genres.includes(this.selectedGenre);
+
 
 			const matchesCloud =
 				!this.onlyCloud || g.cloud;

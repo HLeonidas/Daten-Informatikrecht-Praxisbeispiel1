@@ -25,5 +25,12 @@ export const MEDIA_LICENSES: MediaLicenseItem[] = [
 		license: 'Durch Betriebssystem bereitgestellt',
 		proof: 'Keine externen Font-Dateien eingebunden',
 		notes: 'Tailwind nutzt Standard-Font-Stack, solange nichts anderes konfiguriert wird'
+	},
+	{
+		asset: 'assets/covers/elden-ring-mock.svg',
+		type: 'image',
+		source: 'Eigenes Werk (Mock-Cover, inspiriert von einem bestehenden Spiel)',
+		license: 'Alle Rechte vorbehalten (Urheber: Leon Hueber)',
+		notes: 'Kein offizielles Spiel-Cover. Eigenständig erstellte Grafik zur Darstellung eines Spieleintrags.'
 	}
 ];

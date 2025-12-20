@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Mock Cover: Portal 2">
+  <defs>
+    <linearGradient id="bgP" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="60%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0A0F1C"/>
+    </linearGradient>
+
+    <radialGradient id="ringBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#93C5FD" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="ringOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDBA74" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#F97316" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FB923C" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glowP" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#94A3B8" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgP)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+
+  <!-- Portals -->
+  <g filter="url(#glowP)">
+    <circle cx="340" cy="520" r="170" fill="url(#ringBlue)"/>
+    <circle cx="340" cy="520" r="130" fill="none" stroke="#60A5FA" stroke-opacity="0.9" stroke-width="10"/>
+    <circle cx="340" cy="520" r="155" fill="none" stroke="#93C5FD" stroke-opacity="0.45" stroke-width="6"/>
+
+    <circle cx="1260" cy="520" r="170" fill="url(#ringOrange)"/>
+    <circle cx="1260" cy="520" r="130" fill="none" stroke="#FB923C" stroke-opacity="0.9" stroke-width="10"/>
+    <circle cx="1260" cy="520" r="155" fill="none" stroke="#FDBA74" stroke-opacity="0.45" stroke-width="6"/>
+  </g>
+
+  <!-- Trajectory line -->
+  <path d="M410 560 C600 420 860 420 1085 560" fill="none" stroke="#E5E7EB" stroke-opacity="0.55" stroke-width="6" stroke-dasharray="12 10"/>
+
+  <!-- Abstract test subject silhouette -->
+  <g transform="translate(800,520)">
+    <circle cx="0" cy="-120" r="28" fill="#E5E7EB" opacity="0.8"/>
+    <path d="M-25 -85 L0 -35 L25 -85" fill="none" stroke="#E5E7EB" stroke-opacity="0.75" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 -35 L0 70" fill="none" stroke="#E5E7EB" stroke-opacity="0.75" stroke-width="10" stroke-linecap="round"/>
+    <path d="M0 10 L-60 70" fill="none" stroke="#E5E7EB" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round"/>
+    <path d="M0 10 L70 65" fill="none" stroke="#E5E7EB" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round"/>
+    <path d="M0 70 L-35 150" fill="none" stroke="#E5E7EB" stroke-opacity="0.75" stroke-width="10" stroke-linecap="round"/>
+    <path d="M0 70 L45 150" fill="none" stroke="#E5E7EB" stroke-opacity="0.75" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- small "device" -->
+    <rect x="60" y="40" width="48" height="18" rx="9" fill="#E5E7EB" opacity="0.75"/>
+  </g>
+
+  <!-- Title -->
+  <text x="120" y="170" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="64" font-weight="900" fill="#F8FAFC">
+    PORTAL 2
+  </text>
+
+  <!-- Chips -->
+  <g transform="translate(120,230)">
+    <rect x="0" y="0" width="360" height="48" rx="24" fill="#111827" opacity="0.65"/>
+    <text x="180" y="32" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+          font-size="18" font-weight="700" fill="#E5E7EB">
+      MOCK COVER • STUDIENPROJEKT
+    </text>
+  </g>
+
+  <g transform="translate(120,290)">
+    <rect x="0" y="0" width="210" height="40" rx="20" fill="#0B1220" opacity="0.45" stroke="#60A5FA" stroke-opacity="0.5"/>
+    <text x="105" y="26" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+          font-size="14" font-weight="700" fill="#BFDBFE">
+      BLUE / ORANGE PORTALS
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="120" y="840" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="16" font-weight="600" fill="#E5E7EB" opacity="0.9">
+    Eigenständig erstelltes Mock-Cover — keine offiziellen Artworks/Logos; nur abstrakte, thematische Formen.
+  </text>
+</svg>

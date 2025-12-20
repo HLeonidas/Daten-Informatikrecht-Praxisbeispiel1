@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Mock Cover: Baldur’s Gate 3">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1020"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#060A14"/>
+    </linearGradient>
+
+    <radialGradient id="magic" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.35"/>
+      <stop offset="45%" stop-color="#22D3EE" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#F59E0B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <filter id="glowB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadowB" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgB)"/>
+
+  <!-- Arcane aura -->
+  <circle cx="840" cy="360" r="420" fill="url(#magic)"/>
+
+  <!-- Stylized "gate" arch -->
+  <g transform="translate(800,520)" filter="url(#shadowB)">
+    <path d="M-260 210 V-70 C-260 -230 -140 -340 0 -340 C140 -340 260 -230 260 -70 V210"
+          fill="none" stroke="url(#gold)" stroke-width="26" stroke-linecap="round"/>
+    <path d="M-210 210 V-70 C-210 -200 -110 -285 0 -285 C110 -285 210 -200 210 -70 V210"
+          fill="none" stroke="#FDE68A" stroke-opacity="0.35" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- Inner rune circle -->
+    <circle cx="0" cy="-30" r="140" fill="none" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="6" filter="url(#glowB)"/>
+    <circle cx="0" cy="-30" r="110" fill="none" stroke="#22D3EE" stroke-opacity="0.22" stroke-width="4"/>
+
+    <!-- Runes -->
+    <g opacity="0.75" filter="url(#glowB)">
+      <path d="M0 -170 L12 -135 L-12 -135 Z" fill="#E9D5FF"/>
+      <path d="M120 -30 L85 -18 L85 -42 Z" fill="#CFFAFE"/>
+      <path d="M0 110 L12 75 L-12 75 Z" fill="#E9D5FF"/>
+      <path d="M-120 -30 L-85 -18 L-85 -42 Z" fill="#CFFAFE"/>
+    </g>
+  </g>
+
+  <!-- Subtle ground -->
+  <path d="M0 700 C260 640 520 720 800 660 C1080 600 1340 660 1600 610 L1600 900 L0 900 Z"
+        fill="#0B1220" opacity="0.8"/>
+  <path d="M0 760 C300 700 560 790 820 730 C1120 660 1360 730 1600 690 L1600 900 L0 900 Z"
+        fill="#070B16" opacity="0.95"/>
+
+  <!-- Title -->
+  <text x="120" y="170" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="54" font-weight="900" fill="#F8FAFC">
+    BALDUR’S GATE 3
+  </text>
+
+  <text x="120" y="224" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" font-weight="700" fill="#CBD5E1" opacity="0.92">
+    TACTICAL RPG • PARTY ADVENTURE (MOCK)
+  </text>
+
+  <!-- Chip -->
+  <g transform="translate(120,270)">
+    <rect x="0" y="0" width="360" height="48" rx="24" fill="#111827" opacity="0.65"/>
+    <text x="180" y="32" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+          font-size="18" font-weight="700" fill="#E5E7EB">
+      MOCK COVER • STUDIENPROJEKT
+    </text>
+  </g>
+
+  <!-- Footer disclaimer -->
+  <text x="120" y="840" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="16" font-weight="600" fill="#E5E7EB" opacity="0.9">
+    Eigenständig erstelltes Mock-Cover — keine offiziellen Artworks/Logos; nur abstrakte Fantasy-Illustration.
+  </text>
+</svg>
