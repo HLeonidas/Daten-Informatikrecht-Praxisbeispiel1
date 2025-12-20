@@ -8,4 +8,6 @@ import { RouterLink } from '@angular/router';
 	templateUrl: './imprint.html',
 	styleUrl: './imprint.scss'
 })
-export class Imprint { }
+export class Imprint {
+	readonly year = new Date().getFullYear();
+ }
