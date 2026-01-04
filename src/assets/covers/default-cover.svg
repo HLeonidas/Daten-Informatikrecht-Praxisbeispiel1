@@ -34,7 +34,7 @@
 
   <!-- Title -->
   <text x="120" y="320" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="64" font-weight="800" fill="#111827">
-    GamePassify
+    PlayPassify
   </text>
   <text x="120" y="386" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" font-weight="600" fill="#4B5563">
     Platzhalter-Cover für Studienprojekt

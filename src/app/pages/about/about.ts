@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 	styleUrl: './about.scss'
 })
 export class About {
-	readonly brandName = 'GamePassify';
+	readonly brandName = 'PlayPassify';
 
 	readonly brandColors = [
 		{ name: 'Indigo', hex: '#4F46E5' },
