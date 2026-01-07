@@ -52,6 +52,37 @@ export const GAMES: Game[] = [
 		coverNote: 'Eigenständig erstelltes Mock-Cover – kein offizielles Artwork'
 	},
 	{
+		id: 'the-digital-gaming',
+		title: 'The Digital Gaming (stock image)',
+		genres: ['Indie'],
+		rating: 4.2,
+		cloud: false,
+		isNew: true,
+
+		description:
+			'Stylisiertes Gaming-Avatar-Artwork. Bild von Wikimedia Commons unter CC BY-SA 4.0. Autor: TheDigitalGaming.',
+
+		longDescription:
+			'Dieses Spiel ist Teil eines Studienprojekts. Das dargestellte Cover verwendet ein Bild von Wikimedia Commons unter CC BY-SA 4.0 mit korrekter Attribution. '
+			+ 'Es handelt sich nicht um ein offizielles Spielcover oder Markenlogo.',
+
+		features: [
+			'Stylisiertes Avatar-Artwork',
+			'Nicht-kommerzieller Projekteinsatz',
+			'Korrekte Lizenzkennzeichnung'
+		],
+
+		tags: ['Avatar', 'Stylized', 'Mock'],
+
+		publisher: 'Studienprojekt',
+		releaseYear: 2026,
+
+		coverSrc: 'assets/covers/the-digital-gaming.jpg',
+		coverAlt: 'Avatar mit Kopfhörern und Schriftzug THE DIGITAL',
+
+		coverNote: 'Bild von Wikimedia Commons unter CC BY-SA 4.0. Autor: TheDigitalGaming. Keine Änderungen vorgenommen. https://creativecommons.org/licenses/by-sa/4.0/',
+	},
+	{
 		id: 'g1',
 		title: 'Neon Drift',
 		genres: ['Racing'],

@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
 	styleUrl: './license.scss'
 })
 export class License {
-	readonly lastUpdated = new Date('2025-12-19').toLocaleDateString().slice(0, 10); // YYYY-MM-DD
+	readonly lastUpdated = new Date('2026-01-06').toLocaleDateString().slice(0, 10); // YYYY-MM-DD
 }

@@ -11,6 +11,22 @@ export type MediaLicenseItem = {
 
 export const MEDIA_LICENSES: MediaLicenseItem[] = [
 	{
+		type: 'icon',
+		asset: 'Bootstrap Icons',
+		source: 'https://icons.getbootstrap.com/',
+		license: 'MIT License',
+		proof: 'Bootstrap Icons Projekt – frei nutzbar mit Lizenzhinweis',
+		notes: ''
+	},
+	{
+		type: 'font',
+		asset: 'Systemschriftarten (Monospace-Stack)',
+		source: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+		license: 'Durch Betriebssystem bereitgestellt',
+		proof: 'Verwendung nativer Systemschriftarten, keine Webfont-Einbettung',
+		notes: 'Keine externen Font-Dateien geladen oder verteilt'
+	},
+	{
 		asset: 'assets/covers/*.svg',
 		type: 'image',
 		source: 'Eigenes Werk (selbst erstellt)',
@@ -19,18 +35,27 @@ export const MEDIA_LICENSES: MediaLicenseItem[] = [
 		notes: 'SVG-Covergrafiken für Spiele im Katalog'
 	},
 	{
-		asset: 'Systemschriftarten (Browser/OS)',
-		type: 'font',
-		source: 'System Fonts (z.B. Segoe UI, San Francisco, Roboto)',
-		license: 'Durch Betriebssystem bereitgestellt',
-		proof: 'Keine externen Font-Dateien eingebunden',
-		notes: 'Tailwind nutzt Standard-Font-Stack, solange nichts anderes konfiguriert wird'
+		type: 'image',
+		asset: 'assets/covers/the-digital-gaming.jpg',
+		source: 'Wikimedia Commons – "The Digital Gaming.jpg"',
+		license: 'CC BY-SA 4.0',
+		proof: 'Autor: TheDigitalGaming',
+		notes: 'Quelle: Wikimedia Commons, keine Änderungen vorgenommen'
 	},
 	{
-		asset: 'assets/covers/elden-ring-mock.svg',
 		type: 'image',
-		source: 'Eigenes Werk (Mock-Cover, inspiriert von einem bestehenden Spiel)',
+		asset: 'assets/brand/logo.jpg',
+		source: 'Eigenes Werk (selbst erstellt)',
 		license: 'Alle Rechte vorbehalten (Urheber: Leon Hueber)',
-		notes: 'Kein offizielles Spiel-Cover. Eigenständig erstellte Grafik zur Darstellung eines Spieleintrags.'
+		proof: 'Logo für PlayPassify im Rahmen des Studienprojekts erstellt',
+		notes: 'Nicht offizielles Unternehmenslogo, nur für Studienprojekt'
+	},
+	{
+		type: 'image',
+		asset: 'assets/brand/favicon.jpg',
+		source: 'Eigenes Werk (selbst erstellt)',
+		license: 'Alle Rechte vorbehalten (Urheber: Leon Hueber)',
+		proof: 'Favicon basierend auf eigenem Logo erstellt',
+		notes: 'Nur zur Darstellung der Website verwendet'
 	}
 ];
